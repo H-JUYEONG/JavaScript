@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <link href="" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1 id="logo">자바스크립트</h1>
+    <div id="nav">
+      <ul>
+        <li id="board">게시판</li>
+        <li id="gallery" class="active">갤러리</li>
+        <li id="guestbook">방명록</li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <p class="red">내용1입니다.</p>
+
+      <p class="blue">내용2입니다.</p>
+    </div>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>핸드폰</th>
+          <th>회사</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="n-1">
+          <td>정우성</td>
+          <td id="h-1">010-1111-1111</td>
+          <td>02-1111-1111</td>
+        </tr>
+        <tr id="n-2">
+          <td>이효리</td>
+          <td id="h-2">010-2222-2222</td>
+          <td>02-2222-2222</td>
+        </tr>
+        <tr id="n-3">
+          <td>박명수</td>
+          <td id="h-3">010-3333-3333</td>
+          <td>02-3333-3333</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        
+        let tag01 = document.querySelector('#n-1');
+        let tag02 = document.querySelector('#n-2');
+        let tag03 = document.querySelector('#n-3');
+        console.log(tag01);
+        console.log(tag02);
+        console.log(tag03);
+
+        let personList = [];
+        let personVo1 = {
+            name: tag01.firstElementChild.innerHTML,
+            hp: tag01.firstElementChild.nextElementSibling.innerHTML,
+            company: tag01.lastElementChild.innerHTML
+        }
+
+        let personVo2 = {
+            name: tag02.firstElementChild.innerHTML,
+            hp: tag02.firstElementChild.nextElementSibling.innerHTML,
+            company: tag02.lastElementChild.innerHTML
+        }
+
+        let personVo3 = {
+            name: tag03.firstElementChild.innerHTML,
+            hp: tag03.firstElementChild.nextElementSibling.innerHTML,
+            company: tag03.lastElementChild.innerHTML
+        }
+
+        personList.push(personVo1);
+        personList.push(personVo2);
+        personList.push(personVo3);
+
+        for(let i=0; i<personList.length; i++) {
+            console.log('이름: ' + personList[i].name);
+            console.log('핸드폰: ' + personList[i].hp);
+            console.log('회사: ' + personList[i].company);
+        }
+ 
+
+
+      });
+    </script>
+  </body>
+</html>
