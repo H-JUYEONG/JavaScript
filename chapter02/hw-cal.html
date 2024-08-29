@@ -46,9 +46,22 @@
         let btnTag = document.querySelector("#btnArea");
 
         btnTag.addEventListener("click", function (event) {
-         
+		
+          let buttonClicked = event.target; // 버튼 클릭
+          let value = buttonClicked.innerText; // 클릭한 버튼의 text
 
-          
+		  // 계산 결과
+          if (value === "=") {
+            display.value = calculate(display.value);
+          } else if (value === "C") { // 초기화
+            display.value = "";
+          } else { // 디스플레이에 값 추가
+            display.value += value;
+          }
+
+		  function calculate(operator) {
+			// 코드 작성...
+		  }
         });
       });
     </script>
