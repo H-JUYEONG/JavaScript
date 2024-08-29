@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Insert title here</title>
 
-    <style>
+    <style></style>
+  </head>
 
-    </style>
-
-
-</head>
-
-<body>
-
+  <body>
     <table border="1" width="600px">
-
-        <tbody>
-            <colgroup>
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-                <col style="width: 100px;">
-            </colgroup>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <button id="btnMakeNo" type="button">등록</button>
-                </td>
-            </tr>
-        </tbody>
+      <tbody>
+        <colgroup>
+          <col style="width: 100px" />
+          <col style="width: 100px" />
+          <col style="width: 100px" />
+          <col style="width: 100px" />
+          <col style="width: 100px" />
+          <col style="width: 100px" />
+        </colgroup>
+        <tr>
+          <td>?</td>
+          <td>?</td>
+          <td>?</td>
+          <td>?</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <button id="btnMakeNo" type="button">등록</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <br>
+    <br />
 
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let btnTag = document.querySelector("#btnMakeNo");
+        btnTag.addEventListener("click", function () {
 
-<script>
+          let tdTags = document.querySelectorAll("td");
+          // console.log(tdTags[0].textContent);
 
-
-
-</script>
-
+          // 마지막 td는 버튼이므로 반복 범위는 -1 필요
+          for (let i = 0; i < tdTags.length - 1; i++) {
+            tdTags[i].textContent = Math.floor(Math.random() * 100) + 1;
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

@@ -56,15 +56,32 @@
     <br />
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
+        let btnTag = document.querySelector("#btnGetDate");
+        btnTag.addEventListener("click", function () {
+          let personList = [];
 
-            let personList = [];
+          let tableTags = document.querySelectorAll("table");
 
-            let trTags = document.querySelectorAll('table');
-            console.log(trTags);
-        })
+          // 테이블 길이만큼 반복(3번)
+          for (let i = 0; i < tableTags.length; i++) {
 
+            // n번째 table의 td 태그
+            let tdTags = tableTags[i].querySelectorAll("td");
+            // console.log(tdTags[0].textContent);
 
+            let personVo = { // tdTags[3]은 삭제이므로 제외
+              no: tdTags[0].textContent,
+              name: tdTags[1].textContent,
+              date: tdTags[2].textContent,
+              content: tdTags[4].textContent,
+            };
+
+            personList.push(personVo);
+          }
+          console.log(personList);
+        });
+      });
     </script>
   </body>
 </html>
