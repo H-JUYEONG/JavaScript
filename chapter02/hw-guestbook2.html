@@ -1,46 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
 
-<style>
+    <style></style>
+  </head>
 
-</style>
-
-
-</head>
-
-<body>
+  <body>
     <div>
-		<table border="1" width="540px">
-			<tr>
-				<td>이름</td><td><input type="text" name="name"></td>
-				<td>비밀번호</td><td><input type="password" name="pw"></td>
-			</tr>
-			<tr>
-				<td colspan="4"><textarea cols="72" rows="5" name="content"></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="4"><button id="btnWrite" type="button">등록</button></td>
-			</tr>
-		</table>
-	</div>
-	<br>
+      <table border="1" width="540px">
+        <tr>
+          <td>이름</td>
+          <td><input type="text" name="name" /></td>
+          <td>비밀번호</td>
+          <td><input type="password" name="pw" /></td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <textarea cols="72" rows="5" name="content"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4"><button id="btnWrite" type="button">등록</button></td>
+        </tr>
+      </table>
+    </div>
+    <br />
 
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let btnTag = document.querySelector("#btnWrite");
+        btnTag.addEventListener("click", function () {
 
-<script>
+          // 태그 가져오기
+          let textTag = document.querySelector('input[type="text"]');
+          let passwordTag = document.querySelector('input[type="password"]');
+          let textareaTag = document.querySelector("textarea");
+          // console.log(textareaTag);
 
+          // 이름 구하기
+          let textName = textTag.value;
 
+          // 비밀번호 구하기
+          let textPassword = passwordTag.value;
 
+          // 내용 구하기
+          let textContent = textareaTag.value;
 
+          let personVo = {
+            name: textName,
+            password: textPassword,
+            content: textContent,
+          };
 
+          console.log(personVo);
 
-
-
-
-
-</script>
-
+          // 입력값 지우기
+          textTag.value = "";
+          passwordTag.value = "";
+          textareaTag.value = "";
+        });
+      });
+    </script>
+  </body>
 </html>
